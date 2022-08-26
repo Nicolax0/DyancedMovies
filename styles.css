@@ -8,6 +8,7 @@
     background-color: #A10000;
     text-align: center;
     padding: 8px;
+    margin-bottom: 12px;
 }
 
 .title{
@@ -19,4 +20,34 @@
 .moto{
     font-size: 14px;
     padding-bottom: 16px; 
+}
+
+.list-container{
+    display: flex;
+    position: relative;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    
+}
+
+.genre-list,
+.movie-list{
+    display: flex;
+    padding: 8px;
+    border: 1px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: #A10000;
+    box-shadow: 5px 5px 20px 5px #530000;
+    margin-right: 8px;
+}
+
+.genre-list{
+    flex-grow: 1;
+}
+
+.movie-list{
+    flex-grow: 2;
 }
