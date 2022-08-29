@@ -32,8 +32,8 @@
     
 }
 
-.genre-list,
-.movie-list{
+.left-box,
+.right-box{
     display: flex;
     padding: 8px;
     border: 1px;
@@ -44,10 +44,10 @@
     margin-right: 8px;
 }
 
-.genre-list{
+.left-box{
     flex-grow: 1;
 }
 
-.movie-list{
+.right-box{
     flex-grow: 2;
 }
