@@ -25,7 +25,7 @@
 .list-container{
     display: flex;
     position: relative;
-    width: 70%;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
     padding: 8px;
@@ -35,13 +35,15 @@
 .left-box,
 .right-box{
     display: flex;
+    flex-direction: column;
     padding: 8px;
     border: 1px;
-    border-radius: 25px;
+    border-radius: 10px;
     border-style: solid;
     border-color: #A10000;
-    box-shadow: 5px 5px 20px 5px #530000;
-    margin-right: 8px;
+    box-shadow: 2.5px 2.5px 10px 2.5px #530000;
+    margin-inline: 16px;
+    background-color: #F2F2F2;
 }
 
 .left-box{
@@ -50,4 +52,28 @@
 
 .right-box{
     flex-grow: 2;
+}
+
+.leftTitle,
+.rightTitle{
+    border-bottom: 1px solid lightgrey;
+}
+
+.genre-title,
+.movie-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.genre-subtitle,
+.movie-subtitle{
+    font-style: italic;
+    font-size: 12px;
+}
+
+.scrollLeft,
+.scrollRight{
+    height: 350px;
+    overflow: hidden;
+    overflow-y: hidden;
 }
