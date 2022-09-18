@@ -1,5 +1,5 @@
-const genreList = document.querySelector(".genre-list");
-const movieList = document.querySelector(".movies-list");
+let genreList = document.querySelector(".genre-list");
+let moviesList = document.querySelector(".movies-list");
 const genreUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=03b17a1691b771af4f892d87416c2236&language=en-US";
 let page = 1;
 let gChose = [];
@@ -13,7 +13,6 @@ fetch(genreUrl)
                 let list = document.createElement("li");
                 let space = document.createElement("p");
                 space.setAttribute("target", "_blank");
-                space.setAttribute("rel", "noopener noreferer");
                 space.addEventListener("click", function(){editList(gChose, genreSet.id, page)});
                 space.setAttribute("style", "padding-top: 5px;");
                 space.textContent = genreSet.name;
@@ -45,27 +44,32 @@ function editList(gC, id, page){
     }
     console.log(tempCheck);
 
-    let tempGenre = "&with_genres=".concat(gC[0].toString());
-    for (let i = 1; i<gC.length; i++){
-        tempGenre += "%2C";
-        tempGenre += (gC[i].toString());
-    }
+    // clears movie-list
+    document.getElementById("root").innerHTML = "";
 
-    let movieData = {
-        url: "https://api.themoviedb.org/3/discover/movie?api_key=03b17a1691b771af4f892d87416c2236&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false",
-        pg: "&page=".concat(page.toString()),
-        yr: "&year=".concat(((new Date()).getFullYear()).toString()),
-        gnre: tempGenre
-    };
-    let {url, pg, yr, gnre} = movieData;
-    let movieURL = `${url}${page}${yr}${gnre}`;
-    
-    getMovies(movieURL, page);
+    // creates proper url to fetch
+    if (gC.length>0){
+        let tempGenre = "&with_genres=".concat(gC[0].toString());
+        for (let i = 1; i<gC.length; i++){
+            tempGenre += "%2C";
+            tempGenre += (gC[i].toString());
+        }
+        let movieData = {
+            url: "https://api.themoviedb.org/3/discover/movie?api_key=03b17a1691b771af4f892d87416c2236&language=en-US&region=Us&sort_by=popularity.desc&include_adult=false&include_video=false",
+            pg: "&page=".concat(page.toString()),
+            yr: "&year=".concat(((new Date()).getFullYear()).toString()),
+            gnre: tempGenre
+        };
+        let {url, pg, yr, gnre} = movieData;
+        let movieURL = `${url}${page}${yr}${gnre}`;
+        
+        getMovies(movieURL, page);
+    }
 }
 
 // calls an api that will allow the website to display the names of movies
 function getMovies(movieURL, page){
-    document.getElementsByClassName(".movies-list").innerHTML = "";
+    console.log(movieURL);
 
     fetch(movieURL)
         .then(res => res.json())
@@ -80,7 +84,7 @@ function getMovies(movieURL, page){
                     space.textContent = movieSet.original_title;
                     list.className = ".movies-list";
                     list.appendChild(space);
-                    movieList.appendChild(list);
+                    moviesList.appendChild(list);
                 }
             )}
         )
