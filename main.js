@@ -16,7 +16,7 @@ fetch(genreUrl)
                 let D = document.createElement("li");
                 let a = document.createElement("p");
                 a.setAttribute("target", "_blank");
-                a.addEventListener("click", function(){editList(gChose, genreSet.id, page, D, selectedMovies, sMovName, prevBttn, nextBttn, countNum)});
+                a.addEventListener("click", function(){editList(gChose, genreSet.id, page, D, selectedMovies, sMovName)});
                 a.setAttribute("style", "padding-top: 5px;");
                 a.textContent = genreSet.name;
                 D.className = ".genre-list";
@@ -28,7 +28,7 @@ fetch(genreUrl)
 
 // removes id from gChose if id already exists in gChose, adds id to gChose if id does not exist in gChose
 // creates proper url to fetch movies
-function editList(gC, id, page, D, selectedMovies, sMovName, prevBttn, nextBttn, countNum){
+function editList(gC, id, page, D, selectedMovies, sMovName){
     let doesNotExist = true;
     for (let i = 0; i<gC.length; i++){
         if (gC[i]==id){
