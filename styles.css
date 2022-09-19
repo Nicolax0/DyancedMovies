@@ -43,6 +43,10 @@
     padding: 8px;
 }
 
+.titleBox{
+    display: flex;
+    justify-content: space-between;
+}
 
 .topTitle,
 .bottomTitle{
