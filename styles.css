@@ -8,7 +8,7 @@
     background-color: #A10000;
     text-align: center;
     padding: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
 }
 
 .title{
@@ -23,39 +23,29 @@
 }
 
 .list-container{
-    display: flex;
-    position: relative;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 8px;
-    
-}
-
-.left-box,
-.right-box{
+    height: 100%;
+    width: 20%;
+    margin-left: 8px;
+    margin-top: 8px;
     display: flex;
     flex-direction: column;
+}
+
+.top-box,
+.bottom-box{
     padding: 8px;
     border: 1px;
     border-radius: 10px;
     border-style: solid;
     border-color: #A10000;
     box-shadow: 2.5px 2.5px 10px 2.5px #530000;
-    margin-inline: 16px;
     background-color: #F2F2F2;
+    padding: 8px;
 }
 
-.left-box{
-    flex-grow: 1;
-}
 
-.right-box{
-    flex-grow: 2;
-}
-
-.leftTitle,
-.rightTitle{
+.topTitle,
+.bottomTitle{
     border-bottom: 1px solid lightgrey;
     padding-bottom: 4px;
 }
@@ -72,9 +62,18 @@
     font-size: 12px;
 }
 
-.scrollLeft,
-.scrollRight{
+.scrollTop,
+.scrollBottom{
     height: 300px;
-    overflow: hidden;
-    overflow-y: hidden;
+    overflow: auto;
+    overflow-y: auto;
 }
+
+.scrollTop{
+    height: 200px
+}
+
+.scrollBottom{
+    height: 500px;
+}
+
